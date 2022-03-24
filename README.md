@@ -46,13 +46,13 @@ for a in combinations(nums, 3):
 
 ## 최대공약수 최소공배수
 
-최대공약수 : Greatest Common Measure
-최소공배수 : Least Common Multiple
+- 최대공약수 : Greatest Common Measure
+- 최소공배수 : Least Common Multiple
 
-A와 B의 자연수
-최대 공약수 = G
-최소 공배수 L = G x a x b 
-A x B = G x L = G x a x b x G
+    - A와 B의 자연수
+    - 최대 공약수 = G
+    - 최소 공배수 L = G x a x b 
+    - A x B = G x L = G x a x b x G
 
 ```
 # 최대공약수
