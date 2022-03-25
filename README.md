@@ -62,3 +62,40 @@ G = math.gcd(A, B)
 # 최소공배수
 L = A * B // G
 ```
+
+## 피보나치 수
+
+F(n) = F(n-1) + F(n-2)
+* F(0) = 0, F(1) = 1
+* F(2) = F(1) + F(0) = 1 + 0 = 1
+* F(3) = F(2) + F(1) = 1 + 1 = 2
+* F(4) = F(3) + F(2) = 2 + 1 = 3
+* ...
+ 
+재귀를 이용한 코드
+```
+def fibo(n):
+    if n == 0:
+        return 0
+    elif n ==1 or n==2:
+        return 1
+    else:
+        return fibo(n-2) + fibo(n-1)
+```
+
+재귀 + DP
+```
+def fibo(f, n):
+    if f[n] != -1:
+        return f[n]
+    else:
+        f[n] = fibo(f, n-1) + fibo(f, n-2)
+        return f[n]
+
+def solution(n):
+    
+    f = [-1] * (n+1)
+    f[0], f[1] = 0, 1
+
+    return fibo(f, n)
+```
