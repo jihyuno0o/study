@@ -1,5 +1,6 @@
 # studyPython
 
+
 ## 소수 확인하기
 
 ```
@@ -24,6 +25,7 @@ isprime(8)
 isprime(11)
 ```
 
+
 ## 리스트 콤비네이션
 
 ```
@@ -44,6 +46,7 @@ for a in combinations(nums, 3):
     print(a)
 ```
 
+
 ## 최대공약수 최소공배수
 
 - 최대공약수 : Greatest Common Measure
@@ -63,6 +66,7 @@ G = math.gcd(A, B)
 L = A * B // G
 ```
 
+
 ## 피보나치 수
 
 F(n) = F(n-1) + F(n-2)
@@ -72,7 +76,7 @@ F(n) = F(n-1) + F(n-2)
 * F(4) = F(3) + F(2) = 2 + 1 = 3
 * ...
  
-재귀를 이용한 코드
+#### 재귀를 이용한 코드
 ```
 def fibo(n):
     if n == 0:
@@ -83,7 +87,7 @@ def fibo(n):
         return fibo(n-2) + fibo(n-1)
 ```
 
-재귀 + DP
+#### 재귀 + DP
 ```
 def fibo(f, n):
     if f[n] != -1:
