@@ -103,3 +103,37 @@ def solution(n):
 
     return fibo(f, n)
 ```
+
+## 2진수, 8진수, 16 진수
+
+- 2진수 : 0b
+- 8진수 : 0o
+- 16진수 : 0x
+
+#### bin(),oct(), hex()
+
+#### int()
+```
+int('0b101010', 2)
+int('0o52', 8)
+int('ox2a', 16)
+```
+int() 는 base 는 디폴트 갑이 10
+```
+int('42', 10)
+int('42')
+```
+
+#### fotmat()
+```
+# 접두어 없이 나옴
+format(42, 'b')
+format(42, 'o')
+format(42, 'x')
+format(42, 'd')
+
+# 접두어 포함
+format(42, '#b')
+format(42, '#o')
+format(42, '#x')
+```
