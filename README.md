@@ -173,4 +173,19 @@ INF = float('inf')
 minx, maxx, miny, maxy = INF, -INF, INF, -INF
 ```
 
-## 
+## 데크(deque)
+큐(queue)는 선입선출(FIFO)지만, 데큐(deque)는 양방향 큐로 앞, 뒤로 추가나 제거가 가능
+양끝의 추가와 제거가 리스트보다 훨씬 빠름 - 리스트는 O(n), 데큐는 O(1)
+
+#### collections.deque
+```
+from collections import deque
+
+deq = deque() 
+deq.appendleft(1) # deque([1])
+deq.append(-1) # deque([1, -1])
+deq.popleft() # 1
+deq.pop() # -1
+```
+
+이외에도 deque.remove(item)이나 deque.rotate(num)-데크를 num만큼 회전(양수면 오른쪽, 음수면 왼쪽)-등 유용한 메서드가 있음
