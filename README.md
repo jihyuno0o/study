@@ -175,7 +175,8 @@ minx, maxx, miny, maxy = INF, -INF, INF, -INF
 
 ## 데크(deque)
 큐(queue)는 선입선출(FIFO)지만, 데큐(deque)는 양방향 큐로 앞, 뒤로 추가나 제거가 가능
-양끝의 추가와 제거가 리스트보다 훨씬 빠름 - 리스트는 O(n), 데큐는 O(1)
+- 양끝의 추가와 제거가 리스트보다 훨씬 빠름 
+- 리스트는 O(n), 데큐는 O(1)
 
 #### collections.deque
 ```
