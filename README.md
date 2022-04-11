@@ -148,3 +148,29 @@ format(42, '#b')
 format(42, '#o')
 format(42, '#x')
 ```
+
+## 양의 무한대(inf), 음의 무한대(-inf)
+
+#### 최대값, 최소값 구할때 유용한 float('inf')
+float형에만 적용가능 (int형에 적용불가)
+```
+max = float('inf')
+min = float('inf')
+```
+
+#### Mathematical Function (Python 3.5이상)
+```
+import math
+
+max = math.inf
+min = -math.inf
+```
+
+###### 프로그래머스 - 교점에 별 만들기
+처음에 x,y 각각의 최소, 최대값을 -1000 정도로 생각했는데 min, max가 너무 작아서 실패로 뜨나 싶어서 찾아봄
+```
+INF = float('inf')
+minx, maxx, miny, maxy = INF, -INF, INF, -INF
+```
+
+## 
