@@ -190,3 +190,46 @@ deq.pop() # -1
 ```
 
 이외에도 deque.remove(item)이나 deque.rotate(num)-데크를 num만큼 회전(양수면 오른쪽, 음수면 왼쪽)-등 유용한 메서드가 있음
+
+## 2차원 리스트를 1차원 리스트로 만들기
+- for loop 와 List comprehension
+- sum()
+- itertools
+
+#### for loop 와 List comprehension
+for loop
+```
+list1 = [[1,10], [2,20], [3,30], [4,40]]
+list2 = []
+for inner_list in list1:
+    for data in inner_list:
+        list2.append(data)
+print(list2)
+```
+
+list comprehension
+```
+list1 = [[1,10], [2,20], [3,30], [4,40]]
+list2 = [data for inner_list in list1 for data in inner_list]
+print(list2)
+```
+
+#### sum()
+sum(iterable, start) : start에 iterable의 데이터를 더하는 함수
+```
+list1 = [[1,10], [2,20], [3,30], [4,40]]
+list2 = sum(list1, [])
+# [] + [1,10] + [2,20] + [3,30] + [4,40] 연산 수행
+# python 에서 [1,10] + [2,20] 은 [1,10,2,20]
+print(list2)
+```
+
+#### itertools.chain() 
+```
+import itertools
+
+list1 = [[1,10], [2,20], [3,30], [4,40]]
+list2 = list(itertools.chain(*list1))
+# 언패킹 해서 1차원으로 만들고, 그 안의 데이터를 연결. 전체를 list로 다시 묶음
+print(list2)
+```
