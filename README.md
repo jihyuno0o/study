@@ -233,3 +233,16 @@ list2 = list(itertools.chain(*list1))
 # 언패킹 해서 1차원으로 만들고, 그 안의 데이터를 연결. 전체를 list로 다시 묶음
 print(list2)
 ```
+
+## 소수점 자리수 조절
+
+- 반올림 : round(float, n)
+    - 소수점 n자리 까지 표현
+    - round(4.3, 0) => 4
+    - 소수점이 아닌 정수도 반올림 가능
+    - round(12345, -1) => 12340
+- 올림, 내림 버림 : import math
+    - math.ceil(float) : 올림
+    - math.floor(float) : 내림
+    - math.trunc(float) : 버림
+
