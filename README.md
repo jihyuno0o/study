@@ -241,6 +241,7 @@ print(list2)
     - round(4.3, 0) => 4
     - 소수점이 아닌 정수도 반올림 가능
     - round(12345, -1) => 12340
+    
 - 올림, 내림 버림 : import math
     - math.ceil(float) : 올림
     - math.floor(float) : 내림
