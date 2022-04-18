@@ -247,3 +247,67 @@ print(list2)
     - math.floor(float) : 내림
     - math.trunc(float) : 버림
 
+## global, nonlocal 변수
+
+- 더 넓은 범위에 있는 변수 '읽기'는 가능
+```
+n = 0 # 전역변수
+def func():
+    print(n) # 0
+func()
+```
+전역변수는 아니지만 더 넓은 범위의 변수도 가능
+```
+def func1():
+    n = 1
+    def func2():
+        print(n) # 1
+    func2()
+func1()
+```
+
+- 더 넓은 범위에 있는 변수 '변경'은 불가능
+```
+n = 0
+def func():
+    n += 1 # error
+    print(n)
+func()
+
+def func1():
+    n = 1
+    def func2():
+        n += 1 # error
+        print(n)
+    func2()
+func1()
+```
+UnboundLocalError: local variable 'n' referenced before assignment 에러가 발생
+
+#### global
+- 전역 변수를 함수 내부에서 변경하고자 할 때, 함수 내의 n이 아닌 전역변수 n을 사용한다는 의미로 global n 선언을 해주어야 함
+```
+n = 1 # 전역변수
+def func1():
+    def func2():
+        global n
+        n += 1
+        print(n) # 2
+    func2()
+func1()
+```
+
+#### nonlocal 
+- 전역 변수도 아니고 현재 scope 내의 지역변수가 아닌 변수를 사용하고자 할 때는 nonlcoal 키워드를 사용
+- 전역 변수가 아니고 지역 변수가 아닌 경우에 global 을 사용하면 NameError: name 'n' is not defined에러가 발생
+- 이 경우는 nonlocal n 선언
+```
+def func1():
+    n = 1
+    def func2():
+        nonlocal n
+        n += 1
+        print(n) # 2
+    func2()
+func1()
+```
