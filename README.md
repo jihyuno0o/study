@@ -47,6 +47,7 @@ for a in combinations(nums, 3):
 ```
 
 ## 순열과 조합
+itertools를 사용하는 것이 구현하는 것보다 훨씬 빠름 (라이브러리가 빠름)
 
 #### 조합 : itertools.combinations()
 - 반복 가능한 객체에 대해 중복을 허용하지 않고 r개를 뽑아서 조합
