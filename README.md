@@ -46,6 +46,35 @@ for a in combinations(nums, 3):
     print(a)
 ```
 
+## 순열과 조합
+
+#### 조합 : itertools.combinations()
+- 반복 가능한 객체에 대해 중복을 허용하지 않고 r개를 뽑아서 조합
+- 순서는 고려X
+- combinations(반복가능객체, r)
+```
+from itertools import combinations
+for i in combinations([0,1,2,3] ,2):
+    print(i)
+```
+위의 결과는 아래와 같음
+```
+(0,1), (0,2), (0,3), (1,2), (1,3), (2,3)
+```
+
+#### 순열 : itertools.permutations()
+- 반복 가능한 객체에 대해 중복을 허용하지 않고 r개를 뽑아서 나열
+- 순서 의미O (같은 값이 뽑혀도 순서가 다르면 다른 경우)
+- permutations(반복 가능한 객체, r)
+```
+from itertools import permutations
+for i in permutations([0,1,2,3], 2):
+    print(i)
+```
+위의 결과는 아래와 같음
+```
+(0,1), (0,2), (0,3), (1,0), (1,2), (1,3), (2,0), (2,1), (2,3), (3,0), (3,1), (3,2)
+```
 
 ## 최대공약수 최소공배수
 
