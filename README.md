@@ -79,7 +79,7 @@ for i in permutations([0,1,2,3], 2):
 
 ## 최대공약수 최소공배수
 
-- 최대공약수 : Greatest Common Measure
+- 최대공약수 : Greatest Common Denominator
 - 최소공배수 : Least Common Multiple
 
     - A와 B의 자연수
