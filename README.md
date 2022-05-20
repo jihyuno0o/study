@@ -390,6 +390,8 @@ s2.difference(s1) # {6, 7, 8}
 - heapq.heappop() : 원소 삭제
 
 ```
+import heapq
+
 heap = []
 heapq.heappush(heap, 3)
 heapq.heappush(heap, 5)
@@ -411,10 +413,29 @@ print(heap[0]) # 원소 삭제하지 않고 읽기
 - heapq.heapify()
 
 ```
+import heapq
+
 heap = [9,1,3,4,7]
 heaq.heapify(heap)
 print(heap)
 # [1, 3, 4, 7, 9]
 ```
 
+#### [응용] 최대 힙
+```
+import heapq
+
+nums = [9,1,3,4,7]
+maxheap = []
+
+for num in nums:
+    heapq.heappush(maxheap, (-num, num)) # (우선순위, 값)
+
+print(maxheap)
+# [(-9, 9), (-7, 7), (-4, 4), (-3, 3), (-1, 1)]
+
+while heap:
+    print(heapq.heappop(maxheap)[1], end=' ')
+# 9 7 4 3 1
+```
 
