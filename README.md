@@ -378,3 +378,43 @@ s2.difference(s1) # {6, 7, 8}
 - set.add(10) : 1개의 값 추가
 - set.update([10, 11, 12]) : 여러 개의 값 한번에 추가
 - set.remove(10) : 특정 값 제거 
+
+## heapq
+- 파이썬의 내장모듈
+- 이진트리 기반의 최소 힙 자료구조
+- 원소들이 항상 정렬된 상태로 추가되고 삭제됨
+- 가장 작은 값의 인덱스는 항상 0
+
+#### import heapq
+- heapq.heappush() : 원소 추가
+- heapq.heappop() : 원소 삭제
+
+```
+heap = []
+heapq.heappush(heap, 3)
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 2)
+heapq.heappush(heap, 7)
+print(heap)
+# [2, 3, 5, 7]
+
+print(heapq.heappop(heap))
+# 2
+print(heap)
+# [3,5,7]
+
+print(heap[0]) # 원소 삭제하지 않고 읽기
+# 3
+```
+
+#### 리스트 -> 힙 변환
+- heapq.heapify()
+
+```
+heap = [9,1,3,4,7]
+heaq.heapify(heap)
+print(heap)
+# [1, 3, 4, 7, 9]
+```
+
+
