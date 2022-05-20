@@ -384,6 +384,7 @@ s2.difference(s1) # {6, 7, 8}
 - 이진트리 기반의 최소 힙 자료구조
 - 원소들이 항상 정렬된 상태로 추가되고 삭제됨
 - 가장 작은 값의 인덱스는 항상 0
+- 가장 큰 값은 항상 -1 이 아님 -> max(heap)
 
 #### import heapq
 - heapq.heappush() : 원소 추가
@@ -405,7 +406,7 @@ print(heapq.heappop(heap))
 print(heap)
 # [3,5,7]
 
-print(heap[0]) # 원소 삭제하지 않고 읽기
+print(heap[0]) # 삭제하지 않고 읽기
 # 3
 ```
 
