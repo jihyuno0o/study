@@ -440,3 +440,32 @@ while heap:
 # 9 7 4 3 1
 ```
 
+## 다익스트라 (Dijkstra)
+- 다이나믹 프로그래밍을 활용한 최단 경로 탐색 알고리즘
+- 특정한 하나의 정점에서 다른 모든 정점으로 가는 최단 경로를 반환
+- 음의 간선을 포함할 수 없음 (어차피 현실 세계에는 음의 간선이 존재 X)
+- 하나의 최단 거리를 구할 때 그 이전까지 구했던 최단 거리 정보를 그대로 사용
+
+#### 배달 
+(프로그래머스 http://localhost:8888/notebooks/study/PROGRAMMERS/LV2/%EB%B0%B0%EB%8B%AC.ipynb)
+이 문제에서
+![image](https://user-images.githubusercontent.com/79901413/170931323-bca28f87-f1c9-4c2f-9b86-e1aa650ad21b.png)
+1번 부터 6번까지의 노드에 연결된 [거리, 노드] 의 노드 정보가 있을 때
+
+```
+dist = [float('inf')] * (N+1) # 1에서 최단거리 저장
+dist[1] = 0 # 1은 자기자신 이니까 거리 0
+
+import heapq
+def dijkstra(dist, adj):
+    heap = []
+    heapq.heappush(heap, [0,1]) #거리, 노드
+    
+    while heap:
+        cost, node = heapq.heappop(heap)
+        for c, n in adj[node]:
+            if cost+c < dist[n]:
+                dist[n] = cost + c # 더 짧으면 갱신
+                heapq.heappush(heap, [cost+c, n]) # 노드 추가
+```
+heapq를 사용하여 다익스트라 알고리즘을 구현 가능 (복잡도 O(N*logN))
