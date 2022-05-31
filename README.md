@@ -440,14 +440,20 @@ while heap:
 # 9 7 4 3 1
 ```
 
-## 다익스트라 (Dijkstra)
+## 최단 경로 알고리즘
+- 다익스트라 (Dijkstra) : 하나의 정점에서 출발했을 때 다른 모든 정점으로의 최단 경로를 구함
+- 플로이드 와샬 (Floyd Warshall) : 모든 정점에서 다른 모든 정점으로의 최단 경로를 구함
+![image](https://user-images.githubusercontent.com/79901413/171079039-b314473d-911c-4e40-9889-5c725a52e662.png)
+![image](https://user-images.githubusercontent.com/79901413/171079046-d9864fbf-6908-4fbd-ac49-7195f31d80b5.png)
+
+#### 다익스트라 (Dijkstra)
 - 다이나믹 프로그래밍을 활용한 최단 경로 탐색 알고리즘
 - 특정한 하나의 정점에서 다른 모든 정점으로 가는 최단 경로를 반환
 - 음의 간선을 포함할 수 없음 (어차피 현실 세계에는 음의 간선이 존재 X)
 - 하나의 최단 거리를 구할 때 그 이전까지 구했던 최단 거리 정보를 그대로 사용
 
-#### 배달 
-(프로그래머스 http://localhost:8888/notebooks/study/PROGRAMMERS/LV2/%EB%B0%B0%EB%8B%AC.ipynb)
+###### 배달 
+(프로그래머스 (https://programmers.co.kr/learn/courses/30/lessons/12978))
 이 문제에서
 ![image](https://user-images.githubusercontent.com/79901413/170931323-bca28f87-f1c9-4c2f-9b86-e1aa650ad21b.png)
 1번 부터 6번까지의 노드에 연결된 [거리, 노드] 의 노드 정보가 있을 때
@@ -469,3 +475,26 @@ def dijkstra(dist, adj):
                 heapq.heappush(heap, [cost+c, n]) # 노드 추가
 ```
 heapq를 사용하여 다익스트라 알고리즘을 구현 가능 (복잡도 O(N*logN))
+
+## 플로이드 와샬 (Floyd Warshall)
+- 모든 정점에서 다른 모든 정점으로의 최단 경로를 반환
+- 경유점 개념
+    - 두 정점 a, b를 잇는 경로 : 이 경로는 a와 b를 시작점과 끝점으로 가지고, 직접 연결하거나 다른 정점을 경유해서 갈 수도 있음
+    - 경로가 거쳐가는 정점들을 '경유점'이라고 함
+- 3중 포문으로 시간 복잡도는 O(V^3) -> V가 큰 경우는 피하기
+
+###### 순위
+(프로그래머스 https://programmers.co.kr/learn/courses/30/lessons/49191)
+이 문제는 최단 거리를 구하는 건 아니지만 경유점을 사용하여 연결된 모든 정점을 표시
+
+![image](https://user-images.githubusercontent.com/79901413/171080401-dda3fbc2-0cc2-47d1-a651-8d93ca071a96.png)
+[i][j] == 1이라면 i가 j를 이김으로 표현
+
+```
+for k in range(1, n+1): # 거쳐가는 노드(기준)
+    for i in range(1, n+1): # 출발 노드
+        for j in range(1, n+1): # 도착 노드
+            if matchs[i][j] == 1 or (matchs[i][k] == 1 and matchs[k][j] == 1):
+                matchs[i][j] = 1
+```
+[i][k] == 1 and [k][j] == 1 일때 [i][j]를 이겼다고 표현할 수 있음 (경유지 k이용)
