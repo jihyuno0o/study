@@ -572,3 +572,28 @@ for k in range(1, n+1): # 거쳐가는 노드(기준)
 - defaultdict() : 인자로 주어진 객체의 기본값을 딕셔너리 값의 초기값으로 지정
 - int, list, set 등을 인자로 사용 가능
 
+
+```
+from collections import defaultdict
+int_dict = defaultdict(int)
+int_dict['key1'] # int의 기본값인 0이 값으로 들어감
+# {'key1':0}
+int_dict['key2'] = 'value' # 값을 넣으면 그 값이 저장됨
+# {'key1':0, 'key2':'value'}
+```
+
+###### 프로그래머스 - 순위
+(https://programmers.co.kr/learn/courses/30/lessons/49191)
+
+이 문제를 플로이드 와샬 알고리즘이 아닌 defaultdic을 사용해서 풀 수도 있음
+```
+from collections import defaultdict
+win_graph = defaultdict(set) # 키를 이긴 num을 값에 저장
+lose_graph = defaultdict(set) # 키에게 진 num을 값에 저장
+for w, l in results:
+    win_graph[l].add(w)
+    lose_graph[w].add(l)
+```
+
+![image](https://user-images.githubusercontent.com/79901413/171114749-2e18401a-25dd-4fad-b513-097dd55fa8c2.png)
+
