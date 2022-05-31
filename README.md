@@ -514,6 +514,7 @@ while heap:
 
 ###### 프로그래머스 - 배달 
 (https://programmers.co.kr/learn/courses/30/lessons/12978)
+
 이 문제에서
 ![image](https://user-images.githubusercontent.com/79901413/170931323-bca28f87-f1c9-4c2f-9b86-e1aa650ad21b.png)
 1번 부터 6번까지의 노드에 연결된 [거리, 노드] 의 노드 정보가 있을 때
@@ -548,6 +549,7 @@ heapq를 사용하여 다익스트라 알고리즘을 구현 가능 (복잡도 O
 
 ###### 프로그래머스 - 순위
 (https://programmers.co.kr/learn/courses/30/lessons/49191)
+
 이 문제는 최단 거리를 구하는 건 아니지만 경유점을 사용하여 연결된 모든 정점을 표시
 
 ![image](https://user-images.githubusercontent.com/79901413/171080401-dda3fbc2-0cc2-47d1-a651-8d93ca071a96.png)
@@ -561,3 +563,12 @@ for k in range(1, n+1): # 거쳐가는 노드(기준)
                 matchs[i][j] = 1
 ```
 [i][k] == 1 and [k][j] == 1 일때 [i][j]를 이겼다고 표현할 수 있음 (경유지 k이용)
+
+
+
+
+## defaultdict
+- dict클래스의 서브클래스
+- defaultdict() : 인자로 주어진 객체의 기본값을 딕셔너리 값의 초기값으로 지정
+- int, list, set 등을 인자로 사용 가능
+
